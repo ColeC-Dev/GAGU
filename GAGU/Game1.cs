@@ -11,7 +11,6 @@ namespace GAGU
         private SpriteBatch _spriteBatch;
         triangle _triangle;
         OrbitCam _orbitCam;
-        //Model cubert;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
