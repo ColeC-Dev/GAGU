@@ -49,7 +49,7 @@ namespace GAGU.Renderer
             Game.GraphicsDevice.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.TriangleList,
             vertices, //vertex data
             0, //first vertex in array to use
-            1 //set number of triagnles to draw
+            1 //set number of triangles to draw
             );
 
             //restore to the prior rastorization state
