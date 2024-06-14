@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GAGU.Renderer
+namespace GAGU.Camera
 {
     public class OrbitCam : ICamera
     {
@@ -21,13 +21,13 @@ namespace GAGU.Renderer
         Vector3 position;
         Game game;
 
-        public OrbitCam (Game game, Vector3 position, float speed)
+        public OrbitCam(Game game, Vector3 position, float speed)
         {
             this.game = game;
             this.speed = speed;
             this.position = position;
-            this.projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, game.GraphicsDevice.Viewport.AspectRatio, 1, 1000);
-            this.view = Matrix.CreateLookAt(position, Vector3.Zero, Vector3.Up);
+            projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, game.GraphicsDevice.Viewport.AspectRatio, 1, 1000);
+            view = Matrix.CreateLookAt(position, Vector3.Zero, Vector3.Up);
         }
 
         public void Update(GameTime gameTime)
@@ -36,7 +36,7 @@ namespace GAGU.Renderer
             angle += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             // Calculate a new view matrix
-            this.view =
+            view =
                 Matrix.CreateRotationY(angle) *
                 Matrix.CreateLookAt(position, Vector3.Zero, Vector3.Up);
         }

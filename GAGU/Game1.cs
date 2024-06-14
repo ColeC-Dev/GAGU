@@ -1,4 +1,5 @@
-﻿using GAGU.Renderer;
+﻿using GAGU.Camera;
+using GAGU.Renderer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
