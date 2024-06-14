@@ -12,17 +12,19 @@ namespace GAGU
         private SpriteBatch _spriteBatch;
         triangle _triangle;
         OrbitCam _orbitCam;
+        first_person _firstPerson;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            IsMouseVisible = false;
             base.Initialize();
         }
 
@@ -31,7 +33,7 @@ namespace GAGU
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _triangle = new triangle(this);
             _orbitCam = new OrbitCam(this, new Vector3(0, 5, 10), 0.5f);
-            // TODO: use this.Content to load your game content here
+            _firstPerson = new first_person(this, new Vector3(0, 3, 10));
         }
 
         protected override void Update(GameTime gameTime)
@@ -42,6 +44,7 @@ namespace GAGU
             // TODO: Add your update logic here
             _triangle.Update(gameTime);
             _orbitCam.Update(gameTime);
+            _firstPerson.updateCam_fps(gameTime);
 
             base.Update(gameTime);
         }
@@ -49,8 +52,9 @@ namespace GAGU
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            _triangle.Draw(_orbitCam);
+            
+            //default cam
+            _triangle.Draw(_firstPerson);
 
             base.Draw(gameTime);
         }
